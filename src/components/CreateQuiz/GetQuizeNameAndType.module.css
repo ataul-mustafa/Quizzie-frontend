@@ -1,0 +1,80 @@
+.createNameContainer > form{
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0;
+}
+
+.createNameContainer > form > div{
+    margin: 5px auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.createNameContainer > form > div:nth-child(2), .createNameContainer > form > div:nth-child(3){
+    width: 78%;
+}
+
+.createNameContainer > form > div > input{
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 38px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 5px 0 #00000026;
+}
+
+.createNameContainer > form > div > label{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 38px;
+    color: #9F9F9F;
+}
+
+.createNameContainer > form > div > h2{
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px 10px;
+    width: 120px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 0 #00000026;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+.createNameContainer > form > div > h2:hover{
+    color: #fff;
+    background-color: #60B84B;
+}
+
+.createNameContainer > form > .buttons{
+    margin-top: 30px;
+}
+
+.createNameContainer > form > .buttons > button{
+    width: 220px;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 0 #00000026;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.createNameContainer > form > .buttons > button:hover{
+    background-color: #54a540;
+    color: #fff;
+}
+
+.createNameContainer > form > .buttons > .bgGreen, .bgGreen{
+    background-color: #60B84B;
+    color: #fff;
+}

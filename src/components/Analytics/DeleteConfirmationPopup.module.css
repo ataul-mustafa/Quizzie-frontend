@@ -1,0 +1,45 @@
+.deletePopup{
+    height: 100%;
+    width: 100%;
+    padding: 50px 70px;
+}
+
+.deletePopup > h1{
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 60px;
+    margin: 0 90px;
+    text-align: center;
+}
+
+.deletePopup > div{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.deletePopup > div > button{
+    width: 280px;
+    height: 43px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 5px 0 #00000026;
+    border-radius: 10px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.deletePopup > div > button:nth-child(1){
+    background-color: #FF4B4B;
+    color: #fff;
+}
+
+.deletePopup > div > button:nth-child(1):hover{
+    background-color: #e22626;
+}
+
+.deletePopup > div > button:nth-child(2):hover{
+    background-color: #f8f2f2;
+}

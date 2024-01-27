@@ -1,0 +1,85 @@
+.mainContainer{
+    width: 75%;
+    display: flex;
+    margin: 20px 0;
+}
+
+.mainContainer > .options{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainContainer > .options > div{
+    width: 100%;
+    display: flex;
+}
+
+.mainContainer > .options > div > .radioInput{
+    width: 14%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainContainer > .options > div > .radioInput > input{
+    cursor: pointer;
+    accent-color: green;
+}
+
+
+.mainContainer > .options > div > div > div{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.mainContainer > .options > div > div > div > input{
+    width: 150px;
+    margin: 5px 0;
+    margin-right: 4.5%;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 7px 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 10px 0 #00000026;
+}
+
+.mainContainer > .options > .addButton{
+    width: 160px;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 7px 35px;
+    margin-left: 14%;
+    margin-top: 5px;
+    border-radius: 10px;
+    color: #000;
+    box-shadow: 1px 1px 10px 0 #00000026;
+    cursor: pointer;
+}
+
+.mainContainer > .options > .addButton:hover{
+    background-color: #f2ecec9a;
+}
+
+.mainContainer > .options > div > div > div > input:nth-child(1){
+    width: 130px;
+}
+
+.mainContainer > .options > div > div > div > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainContainer > .options > div > div > div > div > .deleteIcon{
+    color: red;
+    cursor: pointer;
+}
+
+
+.bgGreen{
+    background-color: #60B84B;
+    color: #fff;
+}

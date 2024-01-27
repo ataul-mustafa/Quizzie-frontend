@@ -1,0 +1,58 @@
+.finishQuizeContainer{
+    height: 90vh;
+}
+.finishQuizeContainer > div{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.finishQuizeContainer > .qnaQuizeMessage > h1{
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
+    text-align: center;
+}
+
+.finishQuizeContainer > .qnaQuizeMessage > img{
+    height: 320px;
+    width: 320px;
+    object-fit: contain;
+}
+
+
+.finishQuizeContainer > .qnaQuizeMessage > h2{
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
+    text-align: center;
+}
+
+.finishQuizeContainer > .qnaQuizeMessage > h2 > span{
+    color: #60B84B;
+}
+
+
+.finishQuizeContainer > .pollFinishMessage > h1{
+    font-size: 74px;
+    font-weight: 700;
+    padding: 25%;
+    line-height: 111px;
+    text-align: center;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+
+    .finishQuizeContainer > .pollFinishMessage > h1{
+        font-size: 44px;
+        font-weight: 700;
+        padding: 10%;
+        line-height: 60px;
+    }
+}

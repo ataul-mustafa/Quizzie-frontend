@@ -1,0 +1,41 @@
+.card{
+    width: 180px;
+    height: 65px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 3.5% 5% 2%;
+}
+
+.card > div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card > div > h1{
+    font-size: 20px;
+    font-weight: 600;
+    color: #474444;
+}
+
+.card > div > div{
+    display: flex;
+}
+
+.card > div > div > h2{
+    font-weight: 600;
+    font-size: 15px;
+    color: #FF5D01;
+}
+
+.card > div > div > h2:nth-child(1){
+    margin-right: 4px;
+}
+
+.card > p{
+    font-size: 11px;
+    font-weight: 600;
+    color: #60B84B;
+}

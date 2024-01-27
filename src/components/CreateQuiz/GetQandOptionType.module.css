@@ -1,0 +1,43 @@
+.qContainer{
+    width: 100%;
+}
+
+.qInput > input {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 7px;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 10px 0 #00000026;
+    margin: 30px 0;
+}
+
+.opType{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.opType > h2{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.opType > div{
+    display: flex;
+    align-items: center;
+}
+.opType > div > label{
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 30px;
+    margin-left: 8px;
+}
+
+.opType > div > input{
+    accent-color: green;
+    cursor: pointer;
+}

@@ -1,0 +1,113 @@
+.authWrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.authWrapper > .authCard {
+    width: 1050px;
+    height: 580px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1px;
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
+}
+
+.authWrapper > .authCard > h1{
+    font-family: Jomhuria;
+    font-size: 100px;
+    font-weight: 400;
+    line-height: 100px; 
+}
+
+.authWrapper > .authCard > .authType{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.authWrapper > .authCard > .authType > p{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    background-color: #fff;
+    width: 215px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.authTypeHover, .authWrapper > .authCard > .authType > p:hover{
+    box-shadow: 0 1px 15px 3px #0019FF3D;
+}
+
+.authWrapper > .authCard > form{
+    width: 60%;
+    height: 350px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.authWrapper > .authCard > form > div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.authWrapper > .authCard > form > div > label{
+    width: 30%;
+    text-align: right;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    
+}
+
+.authWrapper > .authCard > form > div > input{
+    width: 65%;
+    height: 38px;
+    outline: none;
+    border: 1px solid #D60000;
+    border-radius: 10px 10px 0 0;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 18px;
+    background-color: #F4F4F4;
+    padding: 0 10px;
+}
+
+.authWrapper > .authCard > form > .error{
+    height: 40px;
+}
+
+.authWrapper > .authCard > form > .error > p{
+    width: 100%;
+    font-size: 13px;
+    font-weight: 500;
+    color: red;
+    margin-left: 36%;
+}
+
+.authWrapper > .authCard > form > button{
+    padding: 4px 20%;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    border: none;
+    background-color: #A9BCFF;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+.authWrapper > .authCard > form > button:hover{
+    background-color: #94abfd;
+}

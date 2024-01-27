@@ -1,0 +1,39 @@
+.headerContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.headerContainer > div{
+    width: 280px;
+    height: 140px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.headerContainer > div > h1{
+    font-size: 55px;
+    text-align: left;
+}
+
+.headerContainer > div > h2{
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.headerContainer > div:nth-child(1){
+    color: #FF5D01;
+}
+.headerContainer > div:nth-child(2){
+    color: #60B84B;
+}
+.headerContainer > div:nth-child(3){
+    color: #5076FF;
+}
