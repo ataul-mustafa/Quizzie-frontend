@@ -134,6 +134,10 @@
         line-height: 5px;
     }
 
+    .takeQuizeContainer>div:nth-child(2)>h1 {
+        font-size: 20px;
+    }
+
     .takeQuizeContainer>div:nth-child(3)>div {
         width: 100%;
     }
