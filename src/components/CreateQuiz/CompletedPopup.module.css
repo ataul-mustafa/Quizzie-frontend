@@ -29,13 +29,14 @@
 }
 
 .CompletedPopupContainer > div{
-    font-size: 18px;
+    width: 100%;
+    font-size: 13.5px;
     font-weight: 500;
     line-height: 38px;
     background-color: #EDEDED;
-    padding: 5px 15px;
+    padding: 5px 9px;
     border-radius: 10px;
-    margin: 15px;
+    margin: 15px 5px;
 }
 
 .CompletedPopupContainer button{
