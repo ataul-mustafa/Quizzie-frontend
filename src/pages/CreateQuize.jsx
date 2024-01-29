@@ -34,7 +34,7 @@ const CreateQuize = ({ quizeInfor = {}, type = 'create' }) => {
   return (
     <div>
       <Popup open={isOpen}
-        closeOnDocumentClick
+        closeOnDocumentClick={false}
         onClose={() => { setIsOpen(false) }}
         contentStyle={{ borderRadius: "10px" }}
       >

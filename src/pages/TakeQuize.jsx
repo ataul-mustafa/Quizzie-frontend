@@ -77,7 +77,7 @@ const TakeQuize = () => {
     return (
         <>
             <Popup open={isOpen}
-                closeOnDocumentClick
+                closeOnDocumentClick={false}
                 onClose={() => { setIsOpen(false) }}
                 contentStyle={popupContentStyle}
             >
