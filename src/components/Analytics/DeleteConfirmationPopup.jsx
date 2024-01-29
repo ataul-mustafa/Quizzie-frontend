@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 const DeleteConfirmationPopup = ({popupInfo, setOpen, setLoading, setRefresh}) => {
     const navigate = useNavigate()
 
+    //deleteHandler function
     const deleteQuize = async () => {
         navigate('/analytics')
         setOpen({isOpen: false, id: ''})
@@ -25,7 +26,6 @@ const DeleteConfirmationPopup = ({popupInfo, setOpen, setLoading, setRefresh}) =
         } catch (error) {
             toast.error(error?.response?.data?.error)
         }
-        // setLoading(false)
     }
 
   return (

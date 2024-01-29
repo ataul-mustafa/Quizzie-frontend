@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { quizeInfo } from '../utils/dummyObjects/quize'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css';
@@ -14,16 +14,18 @@ const CreateQuize = ({ quizeInfor = {}, type = 'create' }) => {
   const [currentPopup, setCurrentPopup] = useState('nameType');
   const [url, setUrl] = useState('');
 
+  //function to recive quize name of quize type from respective component
   const nameTypeReciever = (data) => {
     setQuizeData({ ...quizeData, ...data })
   }
 
+  //function to handle the change of popup
   const popupChanger = (val) => {
     setCurrentPopup(val)
   }
 
   useEffect(() => {
-    if (type == 'update' && quizeInfo) {
+    if (type == 'update' && quizeInfor) {
       setQuizeData(quizeInfor)
       setCurrentPopup('question')
     }

@@ -5,7 +5,6 @@ import { getFormatedDate, getFormatedNo } from '../../utils/Common Functions/com
 
 const QuizeCard = ({ quizeData }) => {
 
-
     return (
         <div className={Style.card}>
             <div>

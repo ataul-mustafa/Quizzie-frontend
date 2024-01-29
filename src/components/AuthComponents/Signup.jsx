@@ -86,6 +86,7 @@ const Signup = ({ authType, changeType }) => {
       try {
         const {data} = await axios.post('https://quizie-backend.onrender.com/api/user/sign-up', authData);
         toast.success(data.message);
+        changeType('log-in')
 
       } catch (error) {
         toast.error(error.response.data.error);

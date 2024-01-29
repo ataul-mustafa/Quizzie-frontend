@@ -37,9 +37,6 @@ const DashboardWrapper = () => {
         setLoading(false)
     }
 
-    // console.log(allQuizes)
-
-
     useEffect(() => {
         fetchQuizes();
     }, [])

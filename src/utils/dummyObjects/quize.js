@@ -10,6 +10,10 @@ export const quizeInfo = {
                 {
                     text: '',
                     imageURL: '',
+                },
+                {
+                    text: '',
+                    imageURL: '',
                 }
             ],
             correctOption: null,
@@ -21,6 +25,10 @@ export const quizeInfo = {
             ques: '',
             optionType: 'text',
             options: [
+                {
+                    text: '',
+                    imageURL: '',
+                },
                 {
                     text: '',
                     imageURL: '',

@@ -1,3 +1,5 @@
+
+//function to convert the date (generated from new date class) into string date
 export const getFormatedDate = (date) => {
     let formattedDate = '';
     if (date) {
@@ -11,7 +13,7 @@ export const getFormatedDate = (date) => {
     return formattedDate;
 }
 
-
+//function to convert numeric num to number with k, m like 10K, 1M
 export const getFormatedNo = (number) => {
     if (number > 999) {
         return (number / 1000).toFixed(1) + 'K';

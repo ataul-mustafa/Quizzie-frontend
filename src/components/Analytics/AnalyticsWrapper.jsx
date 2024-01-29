@@ -34,11 +34,7 @@ const AnalyticsWrapper = () => {
             })
 
             setQuizes(data.quizes);
-
-            console.log(data)
-
         } catch (error) {
-            // console.log(allQuizes)
             toast.error(error?.response?.data?.error);
         }
         setLoading(false)
@@ -48,13 +44,9 @@ const AnalyticsWrapper = () => {
         fetchQuizes();
     }, [refresh])
 
-
+   //function to handle when user click to copy the url
     const onCopyFun = () => {
         toast.success('Link copied to your clipboard')
-    }
-
-    const editHandler = (q) =>{
-        return <CreateQuize quizeInfo={q} />
     }
 
     return (

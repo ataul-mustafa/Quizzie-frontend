@@ -11,6 +11,7 @@ const EditQuize = () => {
   const [loading, setLoading] = useState(true);
   const [quizeData, setQuizeData] = useState({})
 
+  //function to fetch quizes from api
   const fetchQuizes = async () => {
     try {
         const { data } = await axios.get(`https://quizie-backend.onrender.com/api/quize/${id}`, {
@@ -18,12 +19,8 @@ const EditQuize = () => {
                 authorization: localStorage.getItem('authToken')
             }
         })
-
-        setQuizeData(data.quize)
-        console.log(data)
-        
+        setQuizeData(data.quize)        
     } catch (error) {
-      console.log(error)
         toast.error(error?.response?.data?.error);
     }
     setLoading(false)

@@ -23,7 +23,8 @@ const AuthPage = () => {
   return (
     <>
       {
-        authType == 'sign-up' ? <Signup authType={authType} changeType={changeTypeFun} /> : 
+        authType == 'sign-up' ? 
+        <Signup authType={authType} changeType={changeTypeFun} /> : 
         <Login authType={authType} changeType={changeTypeFun} />
       }
     </>

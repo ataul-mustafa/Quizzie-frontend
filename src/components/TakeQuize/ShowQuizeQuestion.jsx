@@ -56,7 +56,6 @@ const ShowQuizeQuestion = ({ question, no, time, length, submitHandler, setNo, s
         }
     }
 
-
     //function to add correct option's index to the array
     const addCorrOption = (i) => {
         setOpt((opts) => {

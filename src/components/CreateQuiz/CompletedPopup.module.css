@@ -1,5 +1,5 @@
 .CompletedPopupContainer{
-    margin: 50px;
+    margin: 50px 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,11 +30,11 @@
 
 .CompletedPopupContainer > div{
     width: 100%;
-    font-size: 13.5px;
+    font-size: 14px;
     font-weight: 500;
-    line-height: 38px;
+    line-height: 30px;
     background-color: #EDEDED;
-    padding: 5px 9px;
+    padding: 5px 15px;
     border-radius: 10px;
     margin: 15px 5px;
 }

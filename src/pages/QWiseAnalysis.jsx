@@ -20,7 +20,6 @@ const QWiseAnalysis = () => {
                     authorization: localStorage.getItem('authToken')
                 }
             })
-            console.log(data)
             setQuize(data.quize);
         } catch (error) {
             toast.error(error?.response?.data?.error);

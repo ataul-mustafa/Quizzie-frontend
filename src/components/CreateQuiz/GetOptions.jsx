@@ -42,7 +42,7 @@ const GetOptions = ({ questions, quizeData, no, setQ }) => {
         newData[no].options[i].imageURL = value;
       }
 
-      return newData;
+      return [...newData];
     });
   };
 

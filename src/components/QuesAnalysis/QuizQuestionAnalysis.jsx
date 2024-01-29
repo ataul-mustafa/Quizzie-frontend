@@ -3,7 +3,7 @@ import { getFormatedDate } from '../../utils/Common Functions/common_functions'
 import Style from './QuestionAnalysis.module.css'
 
 const QuizQuestionAnalysis = ({ quizeData }) => {
-    console.log(quizeData.createdAt)
+
     return (
         <div className={Style.analysisContainer}>
             <div>

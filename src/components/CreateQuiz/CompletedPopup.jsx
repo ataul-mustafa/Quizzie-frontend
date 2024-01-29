@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 
 const CompletedPopup = ({url}) => {
 
+  //function to handle copy functionality when user click on the button to copy the url
   const onCopyFun = () =>{
     toast.success('Link copied to your clipboard')
   }

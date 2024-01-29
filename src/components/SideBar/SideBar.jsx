@@ -15,6 +15,7 @@ const SideBar = () => {
         setCurrentNav(firstSegment)
     }, [segments]);
 
+    //function to handle logout functionality
     const logoutHandler = () =>{
         localStorage.clear('authToken')
         navigate('/auth')

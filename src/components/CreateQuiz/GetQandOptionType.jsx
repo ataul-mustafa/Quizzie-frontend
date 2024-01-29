@@ -4,6 +4,7 @@ import Style from './GetQandOptionType.module.css'
 
 const GetQandOptionType = ({questions, setQ, i, quizeType}) => {
  
+    //onChange handler of quesiton input and optionType
     const onQChange = (e) =>{
         const { name, value } = e.target
         // const i = activeQuestion;

@@ -4,6 +4,7 @@ const GetTimer = ({quizeData}) => {
 
     const [timer, setTimer] = useState(quizeData.timePerQuestion); 
 
+    //fuction to handle timer change
     const timeHandler = (val) => {
         setTimer(val)
         quizeData.timePerQuestion = val;
