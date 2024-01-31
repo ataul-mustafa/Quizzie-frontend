@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Style from './GetAllQuestions.module.css'
 import { IoMdAdd } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
@@ -6,56 +6,51 @@ import GetQandOptionType from './GetQandOptionType';
 import GetOptions from './GetOptions';
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import Loader from '../../utils/globalLoader/Loader';
-import { quizeInfo } from '../../utils/dummyObjects/quize';
 import GetTimer from './GetTimer';
 import { useNavigate } from 'react-router-dom';
+import { quizeContext } from '../../Context API/QuizeContext';
 
-
-const GetAllQuestions = ({ setUrl, changePopup, quizeData, type }) => {
+const GetAllQuestions = ({ changePopup, type = 'create' }) => {
     const navigate = useNavigate()
+    const { quizeData, setQuizeData, resetQuizeData, setLoading, setQuizeURL } = useContext(quizeContext);
 
-    // declaring initiall states with some dummy data
-    const dummyQ = quizeData.quizeType == 'QnA' ? quizeData.QnAQuestions : quizeData.pollQuestions;
-    const initialOptions = [
-        {
-            text: '',
-            imageURL: '',
-        },
-        {
-            text: '',
-            imageURL: '',
-        }
-    ]
-    
-    const initialQues = type == 'create' ? [{ ...dummyQ[0], options: initialOptions }] : [...dummyQ];
-
-    //initializing states
-    const [questions, setQuestions] = useState(initialQues);
+    //state for current question's index
     const [activeQuestion, setActiveQuestion] = useState(0);
-    const [loading, setLoading] = useState(false);
 
     //function to add one more question
     const addQuestion = () => {
-        if (questions.length < 6) {
-            setQuestions([...questions, { ...quizeInfo.QnAQuestions[0], options: initialOptions, }])
+        const dummyQ = {
+            ques: '',
+            optionType: 'text',
+            options: [
+                {
+                    text: '',
+                    imageURL: '',
+                },
+                {
+                    text: '',
+                    imageURL: '',
+                },
+            ],
+            correctOption: null,
+        }
+        if (quizeData.questions.length < 5) {
+            setQuizeData({ ...quizeData, questions: [...quizeData.questions, { ...dummyQ }] })
         }
     }
 
     //function to remove a question
     const removeQuestion = (val) => {
         if (val > 0) {
-            setQuestions(questions.filter((q, i) => i != val))
+            setQuizeData((prevData) => {
+                const filteredQ = prevData.questions.filter((q, i) => i != val);
+                return { ...prevData, questions: filteredQ }
+            })
         }
 
-        if (val == questions.length - 1) {
+        if (val == quizeData.questions.length - 1) {
             setActiveQuestion(val - 1);
         }
-    }
-
-    //function to change current question-- on which we are working currently
-    const changeActiveQ = (i) => {
-        setActiveQuestion(i);
     }
 
     //function to validate all quizedata
@@ -66,30 +61,22 @@ const GetAllQuestions = ({ setUrl, changePopup, quizeData, type }) => {
             toast.error("Please select the timer")
             return validate;
         }
-        for (let i = 0; i < questions.length; i++) {
-            if (!questions[i].ques) {
+        for (let i = 0; i < quizeData.questions.length; i++) {
+            if (!quizeData.questions[i].ques) {
                 toast.error(`Enter the Question no. ${i + 1}`)
                 return validate;
             }
-            for (let j = 0; j < questions[i].options.length; j++) {
-                if ((!questions[i].options[j].text && questions[i].optionType == 'text') || (!questions[i].options[j].imageURL && questions[i].optionType == 'imageURL') || ((!questions[i].options[j].text || !questions[i].options[j].imageURL) && questions[i].optionType == 'textAndImageURL')) {
+            for (let j = 0; j < quizeData.questions[i].options.length; j++) {
+                if ((!quizeData.questions[i].options[j].text && quizeData.questions[i].optionType == 'text') || (!quizeData.questions[i].options[j].imageURL && quizeData.questions[i].optionType == 'imageURL') || ((!quizeData.questions[i].options[j].text || !quizeData.questions[i].options[j].imageURL) && quizeData.questions[i].optionType == 'textAndImageURL')) {
                     toast.error(`Enter all options in Q.${i + 1}`);
                     return validate;
                 }
             }
 
-            if (!questions[i].correctOption && quizeData.quizeType == 'QnA') {
+            if (!quizeData.questions[i].correctOption && quizeData.quizeType == 'QnA') {
                 toast.error(`Select correct option in Q.${i + 1}`)
                 return validate;
             }
-        }
-
-        if (quizeData.quizeType == 'QnA') {
-            quizeData.QnAQuestions = questions;
-            quizeData.pollQuestions = [];
-        } else {
-            quizeData.pollQuestions = questions;
-            quizeData.QnAQuestions = [];
         }
 
         return true;
@@ -97,6 +84,7 @@ const GetAllQuestions = ({ setUrl, changePopup, quizeData, type }) => {
 
     //function to submit data of create quize
     const submitCreateQuize = async () => {
+        setLoading(true);
         try {
             const { data } = await axios.post('https://quizie-backend.onrender.com/api/quize/create', quizeData, {
                 headers: {
@@ -104,16 +92,20 @@ const GetAllQuestions = ({ setUrl, changePopup, quizeData, type }) => {
                 }
             })
             if (data.success) {
-                setUrl(data.url);
+                setQuizeURL(data.url);
                 toast.success(data.message);
+                resetQuizeData()
+                changePopup('lastPopup');
             }
         } catch (error) {
             toast.error(error.response.data.error)
         }
+        setLoading(false);
     }
 
     //function to submit data of edit quize
     const submitEditQuize = async () => {
+        setLoading(true);
         try {
             const { data } = await axios.put(`https://quizie-backend.onrender.com/api/quize/${quizeData._id}`, quizeData, {
                 headers: {
@@ -121,28 +113,26 @@ const GetAllQuestions = ({ setUrl, changePopup, quizeData, type }) => {
                 }
             })
             if (data.success) {
-                setUrl(data.url);
+                setQuizeURL(data.url);
                 toast.success(data.message);
+                resetQuizeData()
+                changePopup('lastPopup');
             }
         } catch (error) {
             toast.error(error.response.data.error)
         }
+        setLoading(false);
     }
 
     //function to submit the quize on the api
     const submitQuize = async (e) => {
         e.preventDefault();
-
         if (validateQuizeData()) {
-
-            setLoading(true);
             if (type == 'create') {
                 await submitCreateQuize();
             } else {
                 await submitEditQuize();
             }
-            setLoading(false);
-            changePopup('lastPopup');
         }
     }
 
@@ -151,17 +141,15 @@ const GetAllQuestions = ({ setUrl, changePopup, quizeData, type }) => {
         navigate('/dashboard')
     }
 
-
     return (
         <>
-            {loading && <Loader />}
             <form onSubmit={submitQuize} className={Style.addQcontainer}>
                 <div className={Style.addQ}>
                     <div className={Style.left}>
                         {
-                            questions.map((q, i) => (
+                            quizeData?.questions?.map((q, i) => (
                                 <div key={i}>
-                                    <div onClick={() => { changeActiveQ(i) }}
+                                    <div onClick={() => { setActiveQuestion(i) }}
                                         className={activeQuestion == i ? `${Style.addCircle} ${Style.bgGreen}` : Style.addCircle}>
                                         <h2>{i + 1}</h2>
                                     </div>
@@ -176,7 +164,7 @@ const GetAllQuestions = ({ setUrl, changePopup, quizeData, type }) => {
                         }
 
                         <IoMdAdd className={Style.addIcon}
-                            style={questions.length == 5 && { display: 'none' }}
+                            style={quizeData?.questions?.length == 5 && { display: 'none' }}
                             onClick={addQuestion}
                         />
 
@@ -187,12 +175,12 @@ const GetAllQuestions = ({ setUrl, changePopup, quizeData, type }) => {
                 </div>
 
                 <div>
-                    <GetQandOptionType questions={questions} setQ={setQuestions} i={activeQuestion} quizeType={quizeData.quizeType} />
+                    <GetQandOptionType i={activeQuestion} />
                 </div>
 
                 <div className={Style.optionsAndTimer}>
-                    <GetOptions questions={questions} quizeData={quizeData} no={activeQuestion} setQ={setQuestions} />
-                    <GetTimer quizeData={quizeData} />
+                    <GetOptions no={activeQuestion} />
+                    <GetTimer />
                 </div>
 
                 <div className={Style.buttons}>

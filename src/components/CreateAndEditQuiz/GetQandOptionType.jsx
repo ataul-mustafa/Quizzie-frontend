@@ -1,30 +1,31 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Style from './GetQandOptionType.module.css'
+import { quizeContext } from '../../Context API/QuizeContext'
 
+const GetQandOptionType = ({ i }) => {
+    const { quizeData, setQuizeData } = useContext(quizeContext);
 
-const GetQandOptionType = ({questions, setQ, i, quizeType}) => {
- 
     //onChange handler of quesiton input and optionType
-    const onQChange = (e) =>{
+    const onQChange = (e) => {
         const { name, value } = e.target
         // const i = activeQuestion;
 
-        setQ((prevData) => {
-            const newData = [...prevData];
-            if (name == 'ques') newData[i].ques = value;
-            else if (name == 'optionType') newData[i].optionType = value;
+        setQuizeData((prevData) => {
+            const newData = { ...prevData };
+            if (name == 'ques') newData.questions[i].ques = value;
+            else if (name == 'optionType') newData.questions[i].optionType = value;
             return newData;
         })
     }
 
-  return (
-    <div className={Style.qContainer}>
-      <div className={Style.qInput}>
+    return (
+        <div className={Style.qContainer}>
+            <div className={Style.qInput}>
                 <input type="text"
-                    value={questions[i].ques || ''}
+                    value={quizeData.questions[i].ques || ''}
                     name='ques'
                     onChange={onQChange}
-                    placeholder={quizeType == 'QnA' ? 'Q & A Question' : 'Poll Question'} />
+                    placeholder={quizeData.quizeType == 'QnA' ? 'Q & A Question' : 'Poll Question'} />
             </div>
 
             <div className={Style.opType}>
@@ -35,7 +36,7 @@ const GetQandOptionType = ({questions, setQ, i, quizeType}) => {
                         name='optionType'
                         value='text'
                         type="radio"
-                        checked={questions[i].optionType == 'text'} 
+                        checked={quizeData.questions[i].optionType == 'text'}
                         onChange={onQChange}
                     />
                     <label htmlFor="text">Text</label>
@@ -47,7 +48,7 @@ const GetQandOptionType = ({questions, setQ, i, quizeType}) => {
                         name='optionType'
                         value='imageURL'
                         type="radio"
-                        checked={questions[i].optionType == 'imageURL'}
+                        checked={quizeData.questions[i].optionType == 'imageURL'}
                         onChange={onQChange}
                     />
                     <label htmlFor="imgURL">Image URL</label>
@@ -59,14 +60,14 @@ const GetQandOptionType = ({questions, setQ, i, quizeType}) => {
                         name='optionType'
                         value='textAndImageURL'
                         type="radio"
-                        checked={questions[i].optionType == 'textAndImageURL'}
+                        checked={quizeData.questions[i].optionType == 'textAndImageURL'}
                         onChange={onQChange}
                     />
                     <label htmlFor="text&ImgURL">Text & Image URL</label>
                 </div>
             </div>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default GetQandOptionType

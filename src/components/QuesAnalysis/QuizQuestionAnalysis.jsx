@@ -17,7 +17,7 @@ const QuizQuestionAnalysis = ({ quizeData }) => {
                 {
                     quizeData?.QnAQuestions?.map((q, i) => (
                         <div key={i}>
-                            <h1>Q.{`${i+1} ${q.ques}`}</h1>
+                            <h1>Q.{`${i + 1} ${q.ques}`}</h1>
                             <div>
                                 <div>
                                     <h1>{q.totalAttempts}</h1>

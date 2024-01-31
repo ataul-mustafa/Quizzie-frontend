@@ -10,11 +10,15 @@ import EditQuize from "./pages/EditQuize"
 import QWiseAnalysis from "./pages/QWiseAnalysis"
 import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
+import { quizeContext } from "./Context API/QuizeContext"
+import { useContext } from "react"
 
 function App() {
+  const { loading } = useContext(quizeContext)
 
   return (
     <>
+      {loading && <Loader />}
       <Routes>
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/loader" element={<Loader />} />
@@ -23,8 +27,8 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/create-quize" element={<CreateQuize />} />
-          <Route path="/analytics/edit-quize/:id" element={<EditQuize />} />
-          <Route path="/analytics/q-analysis/:id" element={<QWiseAnalysis />} />
+          <Route path="/edit-quize" element={<EditQuize />} />
+          <Route path="/analytics/q-analysis" element={<QWiseAnalysis />} />
         </Route>
       </Routes>
       <ToastContainer

@@ -2,7 +2,7 @@ import React from 'react'
 import Style from './Header.module.css'
 import { getFormatedNo } from '../../utils/Common Functions/common_functions'
 
-const Header = ({info}) => {
+const Header = ({ info }) => {
   return (
     <div className={Style.headerContainer}>
       <div><h1>{getFormatedNo(info.totalQuizes)}</h1> <h2> Quize Created</h2> </div>

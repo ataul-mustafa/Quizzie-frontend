@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Style from './ShowQuizeQuestion.module.css'
 
-const ShowQuizeQuestion = ({ question, no, time, length, submitHandler, setNo, setOpt, correctOptions }) => {
+const ShowQuizeQuestion = ({ questions, time, submitHandler, setOpt, choosedOptions }) => {
 
     const [button, setButton] = useState('NEXT');
     const [timer, setTimer] = useState(time);
+    const [no, setNo] = useState(0)
+
+    const question = questions[no];
+    const length = questions.length;
 
     //Useeffect hook to change the seconds automatically
     useEffect(() => {
@@ -27,7 +31,7 @@ const ShowQuizeQuestion = ({ question, no, time, length, submitHandler, setNo, s
 
     //initializing timer state with time prop
     useEffect(() => {
-        if(length == 1){
+        if (length == 1) {
             setButton('SUBMIT')
         }
         setTimer(time)
@@ -85,21 +89,21 @@ const ShowQuizeQuestion = ({ question, no, time, length, submitHandler, setNo, s
                             {
                                 question.optionType == 'text' ?
                                     <div onClick={() => { addCorrOption(i + 1) }}
-                                        style={{ borderColor: correctOptions[no] == i + 1 ? '#5076FF' : 'transparent' }}
+                                        style={{ borderColor: choosedOptions[no] == i + 1 ? '#5076FF' : 'transparent' }}
                                     >
                                         <p>{option.text}</p>
                                     </div> :
 
                                     question.optionType == 'imageURL' ?
                                         <div onClick={() => { addCorrOption(i + 1) }}
-                                            style={{ borderColor: correctOptions[no] == i + 1 ? '#5076FF' : 'transparent' }}
+                                            style={{ borderColor: choosedOptions[no] == i + 1 ? '#5076FF' : 'transparent' }}
                                         >
                                             <img src={option.imageURL} alt='Invalid image address' />
                                         </div> :
 
                                         <div className={Style.imageAndText}
                                             onClick={() => { addCorrOption(i + 1) }}
-                                            style={{ borderColor: correctOptions[no] == i + 1 ? '#5076FF' : 'transparent' }}
+                                            style={{ borderColor: choosedOptions[no] == i + 1 ? '#5076FF' : 'transparent' }}
                                         >
                                             <p>{option.text}</p>
                                             <img src={option.imageURL} alt='Invalid image address' />

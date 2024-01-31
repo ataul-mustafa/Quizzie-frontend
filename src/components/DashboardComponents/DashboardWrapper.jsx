@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import Loader from '../../utils/globalLoader/Loader';
+import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios';
 import Header from './Header';
 import Style from './DashboardWrapper.module.css';
 import QuizeCard from './QuizeCard';
 import { toast } from 'react-toastify';
+import { quizeContext } from '../../Context API/QuizeContext';
 
 const DashboardWrapper = () => {
-
-    const [loading, setLoading] = useState(false);
+    const { setLoading } = useContext(quizeContext)
     const [headerInfo, setHeaderInfo] = useState({
         totalQuizes: null,
         totalQuestions: null,
@@ -43,8 +42,6 @@ const DashboardWrapper = () => {
 
     return (
         <>
-            {loading && <Loader />}
-
             <div className={Style.DashboardContainer}>
                 <div>
                     <Header info={headerInfo} />
@@ -53,7 +50,7 @@ const DashboardWrapper = () => {
                     <h1>Trending Quizes</h1>
                     <div>
                         {
-                            allQuizes.map((quize, i)=>(
+                            allQuizes.map((quize, i) => (
                                 <QuizeCard quizeData={quize} key={i} />
                             ))
                         }

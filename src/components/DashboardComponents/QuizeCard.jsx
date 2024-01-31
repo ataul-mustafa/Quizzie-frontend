@@ -14,7 +14,7 @@ const QuizeCard = ({ quizeData }) => {
                     <h2><ImEye /></h2>
                 </div>
             </div>
-            <p> Created On: 
+            <p> Created On:
                 {
                     quizeData?.createdAt &&
                     ` ${getFormatedDate(quizeData?.createdAt)}`

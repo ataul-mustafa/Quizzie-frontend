@@ -1,26 +1,26 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import Style from './GetTimer.module.css'
-const GetTimer = ({quizeData}) => {
+import { quizeContext } from '../../Context API/QuizeContext'
 
-    const [timer, setTimer] = useState(quizeData.timePerQuestion); 
+const GetTimer = () => {
+    const { quizeData, setQuizeData } = useContext(quizeContext)
 
     //fuction to handle timer change
     const timeHandler = (val) => {
-        setTimer(val)
-        quizeData.timePerQuestion = val;
+        setQuizeData({ ...quizeData, timePerQuestion: val })
     }
 
     return (
         <>
             <div className={Style.timer} style={{ display: quizeData.quizeType == 'poll' ? 'none' : 'block' }}>
                 <h2>Timer</h2>
-                <div className={timer == 'OFF' ? Style.bgRed : ''}
+                <div className={quizeData.timePerQuestion == 'OFF' ? Style.bgRed : ''}
                     onClick={() => { timeHandler('OFF') }}>OFF</div>
 
-                <div className={timer == '5' ? Style.bgRed : ''}
+                <div className={quizeData.timePerQuestion == '5' ? Style.bgRed : ''}
                     onClick={() => { timeHandler('5') }}>5 Sec</div>
 
-                <div className={timer == '10' ? Style.bgRed : ''}
+                <div className={quizeData.timePerQuestion == '10' ? Style.bgRed : ''}
                     onClick={() => { timeHandler('10') }}>10 Sec</div>
             </div>
         </>
