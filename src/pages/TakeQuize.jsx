@@ -30,11 +30,10 @@ const TakeQuize = () => {
         setLoading(true)
         try {
             const { data } = await axios.get(`https://quizie-backend.onrender.com/api/quize/get-one/${id}`)
-            console.log(data)
+
             setChoosedOptions(Array(data.questions.length).fill(null));
             setQuestion(data.questions);
             setTimer((data.time && data.time !== "OFF") && data.time);
-
             setCompletedPopupInfo({
                 ...completedPopupInfo,
                 quizeType: data.quizeType,
