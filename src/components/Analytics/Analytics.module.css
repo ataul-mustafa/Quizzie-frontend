@@ -71,7 +71,6 @@
 .tableContainer > table tr > td:nth-child(5) > :nth-child(1){
     color: #854CFF;
     cursor: pointer;
-    margin-top: 4px;
 }
 .tableContainer > table tr > td:nth-child(5) > :nth-child(2){
     color: #D60000;
