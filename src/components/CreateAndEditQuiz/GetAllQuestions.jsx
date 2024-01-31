@@ -138,7 +138,11 @@ const GetAllQuestions = ({ changePopup, type = 'create' }) => {
 
     //function to handle cancle button 
     const cancelHandler = () => {
-        navigate('/dashboard')
+        if(type == 'create'){
+            navigate('/dashboard')
+        }else {
+            navigate('/analytics')
+        }
     }
 
     return (
