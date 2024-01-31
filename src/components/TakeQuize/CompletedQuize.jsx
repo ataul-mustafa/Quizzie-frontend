@@ -11,7 +11,7 @@ const CompletedQuize = ({ data }) => {
                     <div className={Style.qnaQuizeMessage}>
                         <h1>Congrats Quiz is completed</h1>
                         <img src={trophy} alt="" />
-                        <h2>Your Score is <span>{`0${data.result}/0${data.total}`}</span></h2>
+                        <h2>Your Score is <span>{`0${data.result}/0${data.totalQuize}`}</span></h2>
                     </div> :
                     <div className={Style.pollFinishMessage}>
                         <h1>Thank you
