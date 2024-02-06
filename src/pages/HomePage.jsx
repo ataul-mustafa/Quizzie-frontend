@@ -1,26 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import SideBar from '../components/SideBar/SideBar';
+import Style from './HomePage.module.css'
+import { RiMenu2Line } from "react-icons/ri";
 
 const HomePage = () => {
   const navigate = useNavigate();
+
+  const [openMenu, setOpenMenu] = useState(false);
 
   //redirect to auth page if token is not available in the localstorage
   useEffect(() => {
     const jwtToken = localStorage.getItem('authToken');
     if (!jwtToken) {
       navigate('/auth');
-    }else{
+    } else {
       navigate('/dashboard')
     }
   }, [])
 
   return (
-    <div style={{display: 'flex', height: '100vh'}}>
-      <div>
-        <SideBar />
+    <div className={Style.homeContainer} >
+      <div className={Style.menuIcon}>
+          <RiMenu2Line onClick={()=>{setOpenMenu(!openMenu)}} />
+        </div>
+      <div className={openMenu ? `${Style.sideBar} ${Style.openMenu}`: Style.sideBar} >
+        <SideBar changeToggle={setOpenMenu} />
       </div>
-      <div style={{width: '82%', height: '100%', backgroundColor: '#EDEDED'}}>
+      <div className={Style.contentArea} >
         <Outlet />
       </div>
     </div>

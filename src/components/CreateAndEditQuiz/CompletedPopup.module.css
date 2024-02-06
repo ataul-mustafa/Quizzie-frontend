@@ -57,3 +57,27 @@
 .CompletedPopupContainer button:hover{
     background-color: #4fa839;
 }
+
+@media screen and (max-width: 768px) {
+    .CompletedPopupContainer{
+        margin: 20px 10px;
+    }
+    
+    
+    .CompletedPopupContainer > h1{
+        font-size: 30px;
+        line-height: 45px;
+    }
+    
+    .CompletedPopupContainer > div{
+        width: 100%;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 20px;
+        background-color: #EDEDED;
+        padding: 5px 15px;
+        border-radius: 10px;
+        margin: 15px 5px;
+    }
+    
+}

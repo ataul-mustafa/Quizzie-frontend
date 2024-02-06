@@ -26,12 +26,19 @@ const DeleteConfirmationPopup = ({ popupInfo, setOpen, setRefresh }) => {
     }
   }
 
+  //some style for popup model
+  const popupContentStyle = {
+    borderRadius: "10px",
+    width: window.innerWidth <= 768 ? '100%' : '845px',
+    height: '345px',
+  };
+
   return (
     <>
       <Popup open={popupInfo.isOpen}
         closeOnDocumentClick
         onClose={() => { setOpen({ isOpen: false, id: '' }) }}
-        contentStyle={{ borderRadius: "10px", width: '845px', height: '300px' }}
+        contentStyle={popupContentStyle}
       >
         <div className={Style.deletePopup}>
           <h1>Are you confirm you want to delete ?</h1>

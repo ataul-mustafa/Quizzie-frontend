@@ -80,3 +80,76 @@
     color: #60B84B;
     cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+    .tableContainer > h1{
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+    
+    .tableContainer > table{
+        width: 200%;
+        margin-left: 100%;
+    }
+    
+    .tableContainer > h2{
+        font-size: 70px;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 50px;
+        color: #837d7d35;
+    }
+    
+    .tableContainer > table tr{
+        width: auto;
+        display: flex;
+        padding: 5px 0;
+        border-radius: 10px;
+    }
+    
+    .tableContainer > table tr > td{
+        width: 15%;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+    }
+    
+    .tableContainer > table tr > td:nth-child(6){
+        width: 25%;
+    }
+    
+    .tableContainer > table tr > td:nth-child(6) > a{
+        font-size: 13px;
+        color: #000;
+    }
+    
+    .tableContainer > table > thead > tr{
+        color: #fff;
+        background-color: #5076FF;
+    }
+    
+    .tableContainer > table > tbody > tr:nth-child(even){
+        background-color: #B3C4FF;
+    }
+    
+    .tableContainer > table tr > td:nth-child(5){
+        padding: 0 10px;
+        width: 12%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .tableContainer > table tr > td:nth-child(5) > :nth-child(1){
+        color: #854CFF;
+        cursor: pointer;
+    }
+    .tableContainer > table tr > td:nth-child(5) > :nth-child(2){
+        color: #D60000;
+        cursor: pointer;
+    }
+    .tableContainer > table tr > td:nth-child(5) > :nth-child(3){
+        color: #60B84B;
+        cursor: pointer;
+    }
+}

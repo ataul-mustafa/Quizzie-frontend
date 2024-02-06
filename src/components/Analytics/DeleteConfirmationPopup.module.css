@@ -43,3 +43,19 @@
 .deletePopup > div > button:nth-child(2):hover{
     background-color: #f8f2f2;
 }
+
+@media screen and (max-width: 768px) {
+    .deletePopup{
+        padding: 10px;
+    }
+    
+    .deletePopup > h1{
+        font-size: 30px;
+        margin: 20px;
+    }
+    
+    .deletePopup > div > button{
+        width: 150px;
+    }
+    
+}

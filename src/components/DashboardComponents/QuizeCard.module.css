@@ -39,3 +39,18 @@
     font-weight: 600;
     color: #60B84B;
 }
+
+@media screen and (max-width: 768px) {
+    .card{
+        width: 45%;
+        height: 65px;
+        background-color: #fff;
+        padding: 5px;
+        border-radius: 5px;
+        margin: 0 5% 5% 0;
+    }
+
+    .card > div > h1{
+        font-size: 15px;
+    }
+}

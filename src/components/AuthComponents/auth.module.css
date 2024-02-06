@@ -111,3 +111,53 @@
 .authWrapper > .authCard > form > button:hover{
     background-color: #94abfd;
 }
+
+
+@media screen and (max-width: 768px) {
+    .authWrapper{
+        height: 90vh;
+    }
+    .authWrapper > .authCard {
+        width: 95%;
+        height: 100%;
+        border-radius: 10px;
+    }
+    
+    
+    .authWrapper > .authCard > .authType{
+        width: 90%;
+    }
+    
+    .authWrapper > .authCard > .authType > p{
+        width: 115px;
+    }
+    
+    .authWrapper > .authCard > form{
+        width: 95%;
+        height: 90%;
+        margin-top: 20px;
+    }
+    
+    .authWrapper > .authCard > form > div{
+        flex-direction: column;
+        margin-left: 2.5%;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    
+    .authWrapper > .authCard > form > div > label{
+        width: 950%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    
+    .authWrapper > .authCard > form > div > input{
+        width: 95%;
+        height: 35px;
+    }
+    
+    .authWrapper > .authCard > form > .error > p{
+        margin-left: 0;
+    }
+    
+}

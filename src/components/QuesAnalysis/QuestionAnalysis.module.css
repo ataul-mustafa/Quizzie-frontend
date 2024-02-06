@@ -67,3 +67,36 @@
 .analysisContainer > div:nth-child(2) > div > div > div > p{
     font-size: 14px;
 }
+
+@media screen and (max-width: 768px) {
+    .analysisContainer{
+        padding: 60px 0 10px 7%;
+    }
+    
+    .analysisContainer > div:nth-child(1) > h1{
+        font-size: 24px;
+    }
+    
+    .analysisContainer > div:nth-child(1) > div > p{
+        font-size: 10px;
+    }
+    
+    .analysisContainer > div:nth-child(2) > div > h1{
+        font-size: 20px;
+    }
+    
+    
+    .analysisContainer > div:nth-child(2) > div > div > .pollCard{
+        width: 170px;
+        height: 60px;
+    }
+    
+    
+    .analysisContainer > div:nth-child(2) > div > div > div > h1{
+        font-size: 20px;
+    }
+    
+    .analysisContainer > div:nth-child(2) > div > div > div > p{
+        font-size: 11px;
+    }
+}

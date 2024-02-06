@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Style from './SideBar.module.css'
 import { toast } from 'react-toastify';
 
-const SideBar = () => {
+const SideBar = ({changeToggle}) => {
     const navigate = useNavigate();
     const [currentNav, setCurrentNav] = useState('dashboard');
 
@@ -27,13 +27,13 @@ const SideBar = () => {
             <h1>QUIZZIE</h1>
             <div className={Style.navs}>
                 <Link to={'/dashboard'} className={currentNav == 'dashboard' ? Style.hoverEffect : ''}
-                    onClick={() => { setCurrentNav('dashboard') }}>Dashboard</Link>
+                    onClick={() => { setCurrentNav('dashboard'); changeToggle(false) }}>Dashboard</Link>
 
                 <Link to={'/analytics'} className={currentNav == 'analytics' ? Style.hoverEffect : ''}
-                    onClick={() => { setCurrentNav('analytics') }}>Analytics</Link>
+                    onClick={() => { setCurrentNav('analytics'); changeToggle(false) }}>Analytics</Link>
 
                 <Link to={'/create-quize'} className={currentNav == 'create-quize' ? Style.hoverEffect : ''}
-                    onClick={() => { setCurrentNav('create-quize') }}>Create Quize</Link>
+                    onClick={() => { setCurrentNav('create-quize'); changeToggle(false) }}>Create Quize</Link>
             </div>
             <h2 onClick={logoutHandler}>LOGOUT</h2>
         </div>

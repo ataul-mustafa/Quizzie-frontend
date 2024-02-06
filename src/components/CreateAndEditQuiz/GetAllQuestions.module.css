@@ -95,3 +95,43 @@
 .addQcontainer > .buttons > button:nth-child(2):hover{
     background-color: #52a83c;
 }
+
+
+@media screen and (max-width: 768px) {
+    .addQcontainer{
+        margin: 10px 0;
+    }
+    
+    .addQcontainer > div{
+        width: 100%;
+    }
+    
+    .addQcontainer > div > .left > div > .addCircle{
+        width: 40px;
+        height: 40px;
+    }
+    
+    
+    .addQcontainer > div > .left > div > .addCircle > h2{
+        font-size: 18px;
+    }
+    
+    .addQcontainer > div > .left > div > .removeIcon{
+        font-size: 25px;
+        font-weight: 500;
+        top: -18px;
+        right: 5px;
+    }
+    
+    .addQcontainer > div > .right{
+        font-size: 15px;
+    }
+    
+    .addQcontainer > .buttons{
+        width: 95%;
+    }
+    
+    .addQcontainer > .buttons > button{
+        width: 150px;
+    }
+}

@@ -37,3 +37,19 @@
 .headerContainer > div:nth-child(3){
     color: #5076FF;
 }
+
+@media screen and (max-width: 768px) {
+    .headerContainer > div{
+        width: 30%;
+        height: 140px;
+    }
+    
+    .headerContainer > div > h1{
+        font-size: 35px;
+        text-align: center;
+    }
+    
+    .headerContainer > div > h2{
+        font-size: 17px;
+    }
+}

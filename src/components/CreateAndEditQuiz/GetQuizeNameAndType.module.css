@@ -79,3 +79,32 @@
     background-color: #60B84B;
     color: #fff;
 }
+
+
+@media screen and (max-width: 768px) {
+    .createNameContainer > form{
+        margin: 20px 0;
+    }
+    
+    .createNameContainer > form > div{
+        width: 90%;
+    }
+    
+    .createNameContainer > form > div:nth-child(2), .createNameContainer > form > div:nth-child(3){
+        width: 90%;
+    }
+    
+    .createNameContainer > form > div > label{
+        font-size: 18px;
+    }
+    
+    .createNameContainer > form > div > h2{
+        font-size: 16px;
+        padding: 4px 8px;
+        width: 100px;
+    }
+    
+    .createNameContainer > form > .buttons > button{
+        width: 150px;
+    }
+}

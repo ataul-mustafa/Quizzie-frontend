@@ -22,13 +22,18 @@ const CreateQuize = ({ type }) => {
     }
   }, [])
 
+  const popupContentStyle = {
+    borderRadius: "10px",
+    width: window.innerWidth <= 768 && '100vw',
+    zIndex: 1
+  };
 
   return (
     <div>
       <Popup open={isOpen}
         closeOnDocumentClick={false}
         onClose={() => { setIsOpen(false) }}
-        contentStyle={{ borderRadius: "10px", zIndex: 1 }}
+        contentStyle={popupContentStyle}
       >
         {loading && <Loader />}
 
